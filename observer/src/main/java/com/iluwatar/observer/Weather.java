@@ -36,6 +36,9 @@ import lombok.extern.slf4j.Slf4j;
 public class Weather {
 
   private WeatherType currentWeather;
+  /**
+   * 这里的list不是并发安全的，运行过程中如果有多个Observer同时调用addObserver呢?
+   */
   private final List<WeatherObserver> observers;
 
   public Weather() {
